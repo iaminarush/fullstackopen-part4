@@ -1,7 +1,3 @@
-const dummy = (blogs) => {
-  return 1;
-};
-
 const totalLikes = (blogs) => {
   const reducer = (sum, item) => {
     return sum + item.likes;
@@ -9,4 +5,11 @@ const totalLikes = (blogs) => {
   return blogs.reduce(reducer, 0);
 };
 
-module.exports = { dummy, totalLikes };
+const favoriteBlog = (blogs) => {
+  const reducer = (p, c) => {
+    return p.likes > c.likes ? p : c;
+  };
+  return blogs.reduce(reducer);
+};
+
+module.exports = { totalLikes, favoriteBlog };
