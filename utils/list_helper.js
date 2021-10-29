@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 const totalLikes = (blogs) => {
   const reducer = (sum, item) => {
     return sum + item.likes;
@@ -11,5 +13,9 @@ const favoriteBlog = (blogs) => {
   };
   return blogs.reduce(reducer);
 };
+
+// const mostBlogs = (blogs) => {
+//   return _.chain(blogs)
+// };
 
 module.exports = { totalLikes, favoriteBlog };
