@@ -1,8 +1,8 @@
-import dotenv from "dotenv/config";
-import http from "http";
-import app from "./app.js";
-import config from "./utils/config.js";
-import logger from "./utils/logger.js";
+require("dotenv").config();
+const http = require("http");
+const app = require("./app.js");
+const config = require("./utils/config.js");
+const logger = require("./utils/logger.js");
 
 const server = http.createServer(app);
 

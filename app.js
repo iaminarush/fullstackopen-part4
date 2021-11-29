@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
-import express from "express";
-import cors from "cors";
-import config from "./utils/config.js";
-import blogRouter from "./controllers/blogs.js";
+const mongoose = require("mongoose");
+const express = require("express");
+const cors = require("cors");
+const config = require("./utils/config.js");
+const blogRouter = require("./controllers/blogs.js");
 
 mongoose.connect(config.MONGODB_URI);
 
@@ -13,4 +13,4 @@ app.use(express.json());
 
 app.use("/api/blogs", blogRouter);
 
-export default app;
+module.exports = app;

@@ -1,5 +1,5 @@
-import express from "express";
-import Blog from "../models/blog.js";
+const express = require("express");
+const Blog = require("../models/blog.js");
 
 const blogRouter = express.Router();
 
@@ -17,4 +17,4 @@ blogRouter.post("", (request, response) => {
   });
 });
 
-export default blogRouter;
+module.exports = blogRouter;
