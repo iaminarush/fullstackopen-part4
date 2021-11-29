@@ -1,4 +1,4 @@
-// const _ = require("lodash");
+const _ = require("lodash");
 
 const totalLikes = (blogs) => {
   const reducer = (sum, item) => {
@@ -14,8 +14,14 @@ const favoriteBlog = (blogs) => {
   return blogs.reduce(reducer);
 };
 
-// const mostBlogs = (blogs) => {
-//   return _.chain(blogs)
-// };
+const mostBlogs = (blogs) => {
+  const result = _.chain(blogs)
+    .countBy("author")
+    .entries()
+    .maxBy(_.last)
+    .value();
 
-module.exports = { totalLikes, favoriteBlog };
+  return { author: result[0], blogs: result[1] };
+};
+
+module.exports = { totalLikes, favoriteBlog, mostBlogs };

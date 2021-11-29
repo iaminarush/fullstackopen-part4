@@ -93,3 +93,9 @@ describe("total likes", () => {
     expect(result).toBe(36);
   });
 });
+
+test("return author with most blogs", () => {
+  const result = listHelper.mostBlogs(multipleBlog);
+
+  expect(result).toStrictEqual({ author: "Robert C. Martin", blogs: 3 });
+});
