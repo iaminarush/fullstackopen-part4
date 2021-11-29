@@ -1,4 +1,4 @@
-import _ from "lodash";
+// const _ = require("lodash");
 
 const totalLikes = (blogs) => {
   const reducer = (sum, item) => {
