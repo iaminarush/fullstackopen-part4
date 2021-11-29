@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
-const config = require("./utils/config.js");
-const blogRouter = require("./controllers/blogs.js");
+const config = require("./utils/config");
+const blogRouter = require("./controllers/blogs");
 
 mongoose.connect(config.MONGODB_URI);
 
