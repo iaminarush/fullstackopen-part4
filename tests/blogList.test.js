@@ -99,3 +99,9 @@ test("return author with most blogs", () => {
 
   expect(result).toStrictEqual({ author: "Robert C. Martin", blogs: 3 });
 });
+
+test("return author with most likes", () => {
+  const result = listHelper.mostLikes(multipleBlog);
+
+  expect(result).toStrictEqual({ author: "Edsger W. Dijkstra", likes: 17 });
+});
