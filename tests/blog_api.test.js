@@ -17,6 +17,32 @@ test("id", async () => {
   expect(response.body[0].id).toBeDefined();
 });
 
+test("create blog", async () => {
+  const initialNotes = await api.get("/api/blogs");
+
+  console.log(initialNotes.body.length);
+
+  const newBlog = {
+    title: "test title",
+    author: "test author",
+    url: "test url",
+    likes: "1",
+  };
+
+  await api
+    .post("/api/blogs")
+    .send(newBlog)
+    .expect(201)
+    .expect("Content-Type", /application\/json/);
+
+  const response = await api.get("/api/blogs");
+
+  const titles = response.body.map((r) => r.title);
+
+  expect(response.body).toHaveLength(initialNotes.body.length + 1);
+  expect(titles).toContain("test title");
+});
+
 afterAll(() => {
   mongoose.connection.close();
 });
