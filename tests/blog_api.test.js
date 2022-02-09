@@ -43,6 +43,26 @@ test("create blog", async () => {
   expect(titles).toContain("test title");
 });
 
+test("test missing likes", async () => {
+  const newBlog = {
+    title: "test title",
+    author: "test author",
+    url: "test url",
+    likes: 1,
+  };
+
+  expect(newBlog).toHaveProperty("likes");
+});
+
 afterAll(() => {
   mongoose.connection.close();
 });
+
+// test("test 400", async () => {
+//   const newBlog = {
+//     author: "test author",
+//     likes: 1,
+//   };
+
+//   await api.post("/api/blogs").send(newBlog).expect(400);
+// });
